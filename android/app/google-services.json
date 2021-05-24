@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "823835657939",
+    "firebase_url": "https://mobileauth-bf4e3.firebaseio.com",
+    "project_id": "mobileauth-bf4e3",
+    "storage_bucket": "mobileauth-bf4e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823835657939:android:8f42749be057b94e133626",
+        "android_client_info": {
+          "package_name": "com.example.registraron_screen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823835657939-cmabrd9h9rt5pqrpva7seapp4u58phlg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSqV0eb250DrauPPPL_gdNCQTKf3edQvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823835657939-cmabrd9h9rt5pqrpva7seapp4u58phlg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
