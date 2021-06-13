@@ -19,6 +19,13 @@ class _UpdatescreenState extends State<Updatescreen> {
   int _currentIndex = 0;
   List<String> ids = [];
   String name = "";
+
+  delete(String id) {
+    FirebaseFirestore.instance.collection('Trash').doc(id).delete().then((value){
+      print("deleted");
+    });
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -102,69 +109,89 @@ class _UpdatescreenState extends State<Updatescreen> {
                 );
               return new ListView.builder(
                   itemCount: snapshot.data.docs.length,
-                  itemBuilder: (context, index) => ListTile(
-                    leading: Icon(
-                     Icons.location_on,
-                     size: 30,
-                     color:primary,
-                      
+                  itemBuilder: (context, index) => Dismissible(
+                    key: UniqueKey(),
+                    onDismissed: (direction) {
+                      // Remove the item from the data source.
+                      setState(() {
+                        delete(snapshot.data.docs[index].id);
+                      });
+                      // Then show a snackbar.
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text("Complain dismissed")));
+                    },
+                    // Show a red background as the item is swiped away.
+                    background: Padding(
+                      padding: const EdgeInsets.only(top:5.0,bottom: 5.0),
+                      child: Container(
+                        color: Colors.red,
+                        child: Icon(Icons.delete,color: Colors.white,),
+                      ),
                     ),
-                    title: Text("Complain No: " +snapshot.data.docs[index].id,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        )),
-                    trailing: IconButton(
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
-                          color: primary,
-                        ),
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ReportApproval(
-                            id: snapshot.data.docs[index].id,
-                            lat: snapshot.data.docs[index]["latitude"],
-                            long: snapshot.data.docs[index]["longitude"],
-                            image: snapshot.data.docs[index]["url"],
-                            email: snapshot.data.docs[index]["email"],
-                            address: snapshot.data.docs[index]["address"],
-                          )));
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) =>
-                          //           MapsScreen(
-                          //             email: snapshot.data.docs[index]["email"],
-                          //             id: snapshot.data.docs[index].id,
-                          //             lat: snapshot.data.docs[index]["latitude"],
-                          //             long: snapshot.data.docs[index]["longitude"],
-                          //             address: snapshot.data.docs[index]["address"],
-                          //           ),
-                          //     ));
-                        }),
-                    subtitle:Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                         Row(
-                           children: [
-                             Text( 'Email:  ' +
-                                snapshot.data.docs[index]["email"],
+                    child: ListTile(
+                      leading: Icon(
+                       Icons.location_on,
+                       size: 30,
+                       color:primary,
+
+                      ),
+                      title: Text("Complain No: " +snapshot.data.docs[index].id,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          )),
+                      trailing: IconButton(
+                          icon: Icon(
+                            Icons.arrow_forward_ios,
+                            color: primary,
+                          ),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ReportApproval(
+                              id: snapshot.data.docs[index].id,
+                              lat: snapshot.data.docs[index]["latitude"],
+                              long: snapshot.data.docs[index]["longitude"],
+                              image: snapshot.data.docs[index]["url"],
+                              email: snapshot.data.docs[index]["email"],
+                              address: snapshot.data.docs[index]["address"],
+                            )));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) =>
+                            //           MapsScreen(
+                            //             email: snapshot.data.docs[index]["email"],
+                            //             id: snapshot.data.docs[index].id,
+                            //             lat: snapshot.data.docs[index]["latitude"],
+                            //             long: snapshot.data.docs[index]["longitude"],
+                            //             address: snapshot.data.docs[index]["address"],
+                            //           ),
+                            //     ));
+                          }),
+                      subtitle:Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                           Row(
+                             children: [
+                               Text( 'Email:  ' +
+                                  snapshot.data.docs[index]["email"],
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                ),
+                             ],
+                           ),
+                             Text(
+                                snapshot.data.docs[index]["address"],
                                 style: TextStyle(
                                   fontSize: 15,
                                 ),
                               ),
-                           ],
-                         ),
-                           Text(
-                              snapshot.data.docs[index]["address"],
-                              style: TextStyle(
-                                fontSize: 15,
-                              ),
-                            ),
-                           Divider(height:30),
-                          
-                      ],
-                    )
-                           )
+                             Divider(height:30),
+
+                        ],
+                      )
+                             ),
+                  )
               );
             },
           ),

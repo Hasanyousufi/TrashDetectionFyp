@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Hasan Yousufi\\Desktop\\fypfinalEvaluation\\fyp_trashdetection-master\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "/Users/afnan/Desktop/TrashDetector/finalFYP/TrashDetectionFyp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Hasan Yousufi\\.gradle\\caches\\transforms-2\\files-2.1\\2551154c7d5ac78c1819adbdfd5480f4\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/2551154c7d5ac78c1819adbdfd5480f4/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

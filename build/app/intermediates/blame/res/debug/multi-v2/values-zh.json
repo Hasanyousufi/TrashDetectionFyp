@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Hasan Yousufi\\Desktop\\fypfinalEvaluation\\fyp_trashdetection-master\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "/Users/afnan/Desktop/TrashDetector/finalFYP/TrashDetectionFyp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Hasan Yousufi\\.gradle\\caches\\transforms-2\\files-2.1\\2fe525cc055629951f1888de236d5ae9\\ucrop-2.2.6\\res\\values-zh\\values-zh.xml",
+                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/2fe525cc055629951f1888de236d5ae9/ucrop-2.2.6/res/values-zh/values-zh.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
